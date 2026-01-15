@@ -29,7 +29,7 @@ jobs:
           enable-stack: true
           stack-version: 'latest'
 
-      - name: Cache Stack dependencies
+      - name: Cache Stack
         uses: actions/cache@v3
         with:
           path: |
@@ -39,14 +39,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-stack-
 
-      - name: Build dependencies
-        run: stack build --only-dependencies
-
-      - name: Build me
-        run: stack build
-
-      - name: Generate me
-        run: stack exec me build
+      - name: Build and generate site
+        run: |
+          stack build
+          stack exec me build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
