@@ -341,6 +341,12 @@ footer {
     margin-bottom: 1rem;
 }
 
+.footer-shop {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
 .footer-links {
     display: flex;
     justify-content: center;

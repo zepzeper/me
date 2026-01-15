@@ -42,11 +42,11 @@ jobs:
       - name: Build dependencies
         run: stack build --only-dependencies
 
-      - name: Build site
+      - name: Build me
         run: stack build
 
-      - name: Generate site
-        run: stack exec site build
+      - name: Generate me
+        run: stack exec me build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
