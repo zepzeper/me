@@ -1,0 +1,34 @@
+---
+title: Home
+---
+
+<div class="hero">
+    <h1>Krugten.dev</h1>
+    <p class="subtitle">Software Development & Technology</p>
+    <p class="description">Exploring the world of programming, one commit at a time.</p>
+</div>
+
+<section>
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+        $for(projects)$
+            <div class="project-card">
+                <h3><a href="$url$">$title$</a></h3>
+                <div class="description">$description$</div>
+            </div>
+        $endfor$
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Recent Posts</h2>
+    <ul class="post-list">
+        $for(posts)$
+            <li>
+                <h3><a href="$url$">$title$</a></h3>
+                <div class="date">$date$</div>
+                <div class="summary">$description$</div>
+            </li>
+        $endfor$
+    </ul>
+</section>

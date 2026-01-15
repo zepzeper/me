@@ -1,0 +1,33 @@
+cabal-version:       2.2
+
+name:                me
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/githubuser/me#readme
+license:             BSD-3-Clause
+license-file:        LICENSE
+author:              Wouter van Krugten
+maintainer:          woutervk98@proton.me
+copyright:           2026 Wouter
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+                     CHANGELOG.md
+
+executable me
+  main-is:             site.hs
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5,
+                       hakyll,
+                       pandoc
+  ghc-options:         -Wall
+                       -Wcompat
+                       -Widentities
+                       -Wincomplete-record-updates
+                       -Wincomplete-uni-patterns
+                       -Wmissing-export-lists
+                       -Wmissing-home-modules
+                       -Wpartial-fields
+                       -Wredundant-constraints
+                       -threaded
