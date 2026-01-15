@@ -13,6 +13,18 @@
 
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
     <link rel="alternate" type="application/atom+xml" title="Atom" href="/atom.xml" />
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var links = document.querySelectorAll('a');
+            var currentDomain = window.location.hostname;
+            links.forEach(function(link) {
+                if (link.hostname !== currentDomain && link.hostname !== '') {
+                    link.setAttribute('target', '_blank');
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
