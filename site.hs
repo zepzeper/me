@@ -14,7 +14,7 @@ main = hakyllWith config $ do
 
     match "css/*" $ do
         route   idRoute
-        compile compressCssCompiler
+        compile copyFileCompiler
 
     match "about.markdown" $ do
         route   $ setExtension "html"

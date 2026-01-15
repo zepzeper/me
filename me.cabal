@@ -2,9 +2,9 @@ cabal-version:       2.2
 
 name:                me
 version:             0.1.0.0
--- synopsis:
--- description:
-homepage:            https://github.com/githubuser/me#readme
+synopsis:            Personal blog built with Hakyll
+description:         Static site generator for krugten.org
+homepage:            https://github.com/zepzeper/me
 license:             BSD-3-Clause
 license-file:        LICENSE
 author:              Wouter van Krugten
@@ -13,7 +13,6 @@ copyright:           2026 Wouter
 category:            Web
 build-type:          Simple
 extra-source-files:  README.md
-                     CHANGELOG.md
 
 executable me
   main-is:             site.hs
