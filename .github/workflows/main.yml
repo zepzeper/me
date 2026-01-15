@@ -28,7 +28,7 @@ jobs:
           path: |
             ~/.stack
             .stack-work
-          key: ${{ runner.os }}-stack-${{ hashFiles('stack.yaml', 'package.yaml', '**/*.cabal') }}
+          key: ${{ runner.os }}-stack-${{ hashFiles('stack.yaml', 'package.yaml') }}
           restore-keys: |
             ${{ runner.os }}-stack-
       - name: Build and generate site

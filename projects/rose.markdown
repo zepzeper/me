@@ -1,0 +1,7 @@
+---
+title: "PHP framework (abandoned)"
+description: "PHP framework with first class HTMX support."
+date: 2025-01-15
+author: "Wouter van Krugten"
+url: "https://github.com/zepzeper/rose"
+---
