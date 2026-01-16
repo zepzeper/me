@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-import           Data.Monoid (mappend)
 import           Data.List (intercalate)
 import           Hakyll
 import           Text.Pandoc.Highlighting (styleToCss, pygments, zenburn)
@@ -42,13 +41,27 @@ main = hakyllWith config $ do
             >>= loadAndApplyTemplate "templates/default.html" projectCtx
             >>= relativizeUrls
 
+    create ["archive.html"] $ do
+        route idRoute
+        compile $ do
+            posts <- recentFirst =<< loadAll "posts/*"
+            let archiveCtx =
+                    listField "posts" postCtx (return posts) <>
+                    constField "title" "Archives"            <>
+                    defaultContext
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
+                >>= loadAndApplyTemplate "templates/default.html" archiveCtx
+                >>= relativizeUrls
+
     create ["projects.html"] $ do
         route idRoute
         compile $ do
-            projects <- loadAll "projects/*"
+            projects <- recentFirst =<< loadAll "projects/*"
             let projectsCtx =
-                    listField "projects" projectCtx (return projects) `mappend`
-                    constField "title" "Projects"               `mappend`
+                    listField "projects" projectCtx (return projects) <>
+                    constField "title" "Projects"               <>
                     defaultContext
 
             makeItem ""
@@ -71,12 +84,12 @@ main = hakyllWith config $ do
     match "index.html" $ do
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll "posts/*"
-            projects <- loadAll "projects/*"
+            posts <- take 2 <$> (recentFirst =<< loadAll "posts/*")
+            projects <- take 2 <$> (recentFirst =<< loadAll "projects/*")
             let indexCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    listField "projects" projectCtx (return projects) `mappend`
-                    constField "title" "Home"                `mappend`
+                    listField "posts" postCtx (return posts) <>
+                    listField "projects" projectCtx (return projects) <>
+                    constField "title" "Home"                <>
                     defaultContext
 
             getResourceBody
@@ -112,7 +125,7 @@ config = defaultConfiguration
 --------------------------------------------------------------------------------
 feedConfig :: FeedConfiguration
 feedConfig = FeedConfiguration
-    { feedTitle       = "Krugten.dev"
+    { feedTitle       = "Krugten.org"
     , feedDescription  = "Blog about software development, technology, and programming"
     , feedAuthorName   = "Wouter van Krugten"
     , feedAuthorEmail  = "woutervk98@proton.me"
@@ -122,8 +135,10 @@ feedConfig = FeedConfiguration
 --------------------------------------------------------------------------------
 postCtx :: Context String
 postCtx =
-    dateField "date" "%B %e, %Y" `mappend`
+    dateField "date" "%B %e, %Y" <>
     defaultContext
 
 projectCtx :: Context String
-projectCtx = defaultContext
+projectCtx =
+    dateField "date" "%B %e, %Y" <>
+    defaultContext

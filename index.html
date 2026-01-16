@@ -3,32 +3,40 @@ title: Home
 ---
 
 <div class="hero">
-    <h1>Krugten.dev</h1>
-    <p class="subtitle">Software Development & Technology</p>
-    <p class="description">Exploring the world of programming, one commit at a time.</p>
+    <h1>krugten.org</h1>
+    <div class="subtitle">&gt; ESTABLISHED CONNECTION...</div>
+    <div class="description">
+        <p>Welcome to my digital garden. I write about software development, technology, and the future.</p>
+    </div>
 </div>
 
 <section>
-    <h2 class="section-title">Featured Projects</h2>
+    <h2 class="section-title">&gt;&gt; ACTIVE_MODULES [PROJECTS]</h2>
     <div class="projects-grid">
         $for(projects)$
-            <div class="project-card">
-                <h3><a href="$url$">$title$</a></h3>
-                <div class="description">$description$</div>
-            </div>
+        <div class="project-card">
+            <h3><a href="$url$">$title$</a></h3>
+            <div class="description">$description$</div>
+        </div>
         $endfor$
+    </div>
+    <div style="text-align: right; margin-top: 1rem;">
+        <a href="/projects.html">[ VIEW_ALL_MODULES ]</a>
     </div>
 </section>
 
-<section>
-    <h2 class="section-title">Recent Posts</h2>
+<section style="margin-top: 4rem;">
+    <h2 class="section-title">&gt;&gt; LATEST_TRANSMISSIONS [POSTS]</h2>
     <ul class="post-list">
         $for(posts)$
-            <li>
-                <h3><a href="$url$">$title$</a></h3>
-                <div class="date">$date$</div>
-                <div class="summary">$description$</div>
-            </li>
+        <li>
+            <h3><a href="$url$">$title$</a></h3>
+            <div class="date">$date$</div>
+            <div class="summary">$description$</div>
+        </li>
         $endfor$
     </ul>
+    <div style="text-align: right; margin-top: 1rem;">
+        <a href="/archive.html">[ ACCESS_ARCHIVES ]</a>
+    </div>
 </section>

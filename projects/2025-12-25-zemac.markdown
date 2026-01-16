@@ -1,7 +1,7 @@
 ---
 title: "Neovim plugin"
 description: "Compile mode plugin for Neovim"
-date: 2025-12-25
+date: "2025-12-25"
 author: "Wouter van Krugten"
 url: "https://github.com/zepzeper/zemac"
 ---
